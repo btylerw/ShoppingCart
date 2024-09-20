@@ -19,9 +19,9 @@ function GetProducts() {
     const createImages = products.map((product, key) => {
         return (
             <div key={key}>
-                <img src={product.image} style={{height: '200px', width: 'auto'}} alt="" />
-                <h2>{product.title}</h2>
-                <h3>${product.price}</h3>
+                <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
+                <h3>{product.title}</h3>
+                <h4>${product.price}</h4>
             </div>
         )
     })
