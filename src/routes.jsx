@@ -2,6 +2,7 @@ import App from "./App";
 import GetProducts from "./GetProducts";
 import ErrorPage from "./ErrorPage";
 import HomePage from "./HomePage";
+import Landing from "./Landing";
 
 const routes = [
     {
@@ -11,7 +12,7 @@ const routes = [
     },
     {
         path: "/:name",
-        element: <App />,
+        element: <Landing />,
     }
 ];
 
