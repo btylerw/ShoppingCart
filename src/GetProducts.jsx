@@ -22,6 +22,7 @@ function GetProducts() {
                 <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
                 <h3>{product.title}</h3>
                 <h4>${product.price}</h4>
+                <button style={{backgroundColor: 'white', color: 'black'}}>Add To Cart</button>
             </div>
         )
     })
