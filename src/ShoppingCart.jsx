@@ -9,6 +9,7 @@ export const ShoppingCart = () => {
     const showCart = cartItems.map((item) => {
         return (
             <>
+                <img src={item.image} alt="" />
                 <div style={{color: 'black'}}>{item.title}</div>
                 <div style={{color: 'black'}}>{item.price}</div>
                 <div style={{color: 'black'}}>Quantity: {item.quantity}</div>
@@ -16,7 +17,7 @@ export const ShoppingCart = () => {
             </>
         )
     })
-    
+
     return (
         <>
             <Navbar />
