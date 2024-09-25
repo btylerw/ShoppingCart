@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Navbar from "./NavBar";
+import '../styles/GetProducts.css';
 
 function GetProducts() {
     const [products, setProducts] = useState([]);
@@ -18,7 +20,7 @@ function GetProducts() {
 
     const createImages = products.map((product, key) => {
         return (
-            <div key={key}>
+            <div key={key} className="product">
                 <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
                 <h3>{product.title}</h3>
                 <h4>${product.price}</h4>
@@ -28,6 +30,7 @@ function GetProducts() {
     })
     return (
         <>
+            <Navbar />
             <div className="productGrid">{createImages}</div>
         </>
     )

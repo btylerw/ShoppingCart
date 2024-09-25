@@ -6,8 +6,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0f172a;
     color: white;
+    background-color: rgb(237, 238, 239);
     position: sticky;
     padding: 10px;
     top: 0;
@@ -90,4 +90,10 @@ nav .menu span {
     nav ul li a {
         margin: 0.2rem 0.5rem;
     }
+}
+
+.cart {
+    fill: black;
+    width: 25px;
+    height: auto;
 }
