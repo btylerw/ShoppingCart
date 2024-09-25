@@ -2,6 +2,11 @@
     color: black;
 }
 
+.shop-container {
+    height: 100vh;
+    margin-top: 5px;
+}
+
 .quant-button-container {
     display: flex;
     justify-content: center;

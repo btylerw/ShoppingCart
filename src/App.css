@@ -9,6 +9,7 @@
   height: 100vh;
   margin-top: 5px;
 }
+
 .logo {
   will-change: filter;
   transition: filter 300ms;

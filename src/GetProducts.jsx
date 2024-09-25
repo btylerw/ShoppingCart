@@ -10,7 +10,7 @@ function GetProducts() {
     const [loading, setLoading] = useState(true);
 
     // Getting cart info from Cart Context
-    const { cartItems, cartAmount, addToCart, calculatePrice } = useCart();
+    const { cartItems, cartAmount, addToCart, calculatePrice, changeCartAmount } = useCart();
 
     // API request to retrieve all of our product information.
     useEffect(() => {
@@ -28,10 +28,12 @@ function GetProducts() {
     const changeQuantity = (product, change) => {
         if (change === 'increase') {
             setProducts(products.map(item => item.id === product.id ? {...item, quantity: item.quantity + 1} : item))
+            changeCartAmount(1);
         } else {
             const canDecrease = products.find(item => item.id === product.id  && product.quantity > 1);
             if (canDecrease) {
                 setProducts(products.map(item => item.id === product.id ? {...item, quantity: item.quantity -1} : item))
+                changeCartAmount(-1);
             }
             
         }
@@ -57,7 +59,9 @@ function GetProducts() {
     return (
         <>
             <Navbar />
-            <div className="productGrid">{createImages}</div>
+            <div className="shop-container">
+                <div className="productGrid">{createImages}</div>
+            </div>
         </>
     )
 }

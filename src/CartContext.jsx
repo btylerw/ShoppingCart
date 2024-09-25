@@ -36,8 +36,14 @@ export function CartProvider({ children }) {
         return total;
     }
 
+    function changeCartAmount(amount) {
+        if (cartAmount + amount > 0) {
+            setCartAmount(cartAmount + amount);
+        }
+    }
+
     return (
-        <CartContext.Provider value={{ cartItems, cartAmount, addToCart, calculatePrice, removeFromCart }}>
+        <CartContext.Provider value={{ cartItems, cartAmount, addToCart, calculatePrice, removeFromCart, changeCartAmount }}>
             {children}
         </CartContext.Provider>
     );

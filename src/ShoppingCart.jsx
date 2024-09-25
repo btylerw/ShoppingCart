@@ -10,7 +10,7 @@ export const ShoppingCart = () => {
     const showCart = cartItems.map((item) => {
         return (
             <>
-            <div className="cart-container">
+            <div className="cart-items">
                 <img className="cart-image" src={item.image} alt="" />
                 <h3 style={{color: 'black'}}>{item.title}</h3>
                 <h3 style={{color: 'black'}}>{item.price}</h3>
@@ -24,8 +24,10 @@ export const ShoppingCart = () => {
     return (
         <>
             <Navbar />
-            <div style={{color: 'black'}}>{cartAmount ? showCart : "Your cart is empty!"}</div>
-            <h2 style={{color: 'black'}}>Total Price: ${calculatePrice()}</h2>
+            <div className="cart-container">
+                <div style={{color: 'black'}}>{cartAmount ? showCart : "Your cart is empty!"}</div>
+                <h2 style={{color: 'black'}}>Total Price: ${calculatePrice()}</h2>
+            </div>
         </>
     )
 }
