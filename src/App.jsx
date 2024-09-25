@@ -7,7 +7,6 @@ import './App.css'
 import ErrorPage from './ErrorPage';
 
 function App() {  
-  const [shoppingCart, setShoppingCart] = useState(1);
   return (
     <>
       <Navbar />

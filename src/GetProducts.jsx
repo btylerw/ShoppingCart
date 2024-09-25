@@ -8,7 +8,10 @@ function GetProducts() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    // Getting cart info from Cart Context
     const { cartItems, cartAmount, addToCart, calculatePrice } = useCart();
+
+    // API request to retrieve all of our product information.
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
                 .then(res=>res.json())
@@ -20,6 +23,7 @@ function GetProducts() {
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error loading screen</p>
 
+    // Creates elements that will display our product information and map the data accordingly
     const createImages = products.map((product, key) => {
         product.quantity = 1;
         return (
@@ -31,6 +35,7 @@ function GetProducts() {
             </div>
         )
     })
+
     return (
         <>
             <Navbar />

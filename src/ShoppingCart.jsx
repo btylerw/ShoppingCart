@@ -4,6 +4,8 @@ import { useCart } from "./CartContext";
 
 export const ShoppingCart = () => {
     const { cartItems, cartAmount, addToCart, calculatePrice, removeFromCart } = useCart();
+    
+    // Creates an element for each item in our shopping cart
     const showCart = cartItems.map((item) => {
         return (
             <>
@@ -14,6 +16,7 @@ export const ShoppingCart = () => {
             </>
         )
     })
+    
     return (
         <>
             <Navbar />
