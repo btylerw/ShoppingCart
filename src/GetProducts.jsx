@@ -24,19 +24,18 @@ function GetProducts() {
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error loading screen</p>
 
-    const increaseQuantity = (product) => {
-        console.log(product.quantity);
-        product.quantity += 1;
-        setUpdate(!update);
-    }
-
-    const reduceQuantity = (product) => {
-        if (product.quantity > 1) {
-            product.quantity -= 1;
+    // Changes quantity of a product
+    const changeQuantity = (product, change) => {
+        if (change === 'increase') {
+            setProducts(products.map(item => item.id === product.id ? {...item, quantity: item.quantity + 1} : item))
+        } else {
+            const canDecrease = products.find(item => item.id === product.id  && product.quantity > 1);
+            if (canDecrease) {
+                setProducts(products.map(item => item.id === product.id ? {...item, quantity: item.quantity -1} : item))
+            }
+            
         }
-        setUpdate(!update);
     }
-    
     // Creates elements that will display our product information and map the data accordingly
     const createImages = products.map((product, key) => {
         console.log(product);
@@ -46,9 +45,9 @@ function GetProducts() {
                 <h3>{product.title}</h3>
                 <h4>${product.price}</h4>
                 <div className="quant-button">
-                    <button onClick={() => reduceQuantity(product)}>-</button>
+                    <button onClick={() => changeQuantity(product, 'decrease')}>-</button>
                     <h4>{product.quantity}</h4>
-                    <button onClick={() => increaseQuantity(product)}>+</button>
+                    <button onClick={() => changeQuantity(product, 'increase')}>+</button>
                 </div>
                 <button style={{backgroundColor: 'white', color: 'black'}} onClick={() => {addToCart(product)}}>Add To Cart</button>
             </div>
