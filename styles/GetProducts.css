@@ -1,3 +1,8 @@
 .product {
     color: black;
 }
+
+.quant-button {
+    display: flex;
+    justify-content: center;
+}

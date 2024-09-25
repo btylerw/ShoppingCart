@@ -12,7 +12,6 @@ function App() {
       <Navbar />
       <div style={{color: 'black'}}>
         <h1>This is the home page!</h1>
-        <div>Your Shopping Cart has: {shoppingCart.length} items</div>
       </div>
     </>
 
