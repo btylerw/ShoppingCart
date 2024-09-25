@@ -15,18 +15,18 @@ export function CartProvider({ children }) {
         setCartItems(previousCart => {
             const prodExists = cartItems.find(item => item.id === product.id);
             if (prodExists) {
-                return previousCart.map(item => item.id === product.id ? {...item, quantity: item.quantity + 1} : item);
+                return previousCart.map(item => item.id === product.id ? {...item, quantity: item.quantity + product.quantity} : item);
             } else {
                 return [...previousCart, product];
             }
         });
-        setCartAmount(cartAmount+1);
+        setCartAmount(cartAmount+product.quantity);
     }
 
     // Removes an item from our cart entirely
     function removeFromCart(product) {
         const updatedCart = cartItems.filter(item => item.id != product.id);
-        setCartAmount(cartAmount - 1);
+        setCartAmount(cartAmount - product.quantity);
         setCartItems(updatedCart);
     }
 
@@ -36,14 +36,8 @@ export function CartProvider({ children }) {
         return total;
     }
 
-    function changeCartAmount(amount) {
-        if (cartAmount + amount > 0) {
-            setCartAmount(cartAmount + amount);
-        }
-    }
-
     return (
-        <CartContext.Provider value={{ cartItems, cartAmount, addToCart, calculatePrice, removeFromCart, changeCartAmount }}>
+        <CartContext.Provider value={{ cartItems, cartAmount, addToCart, calculatePrice, removeFromCart }}>
             {children}
         </CartContext.Provider>
     );
