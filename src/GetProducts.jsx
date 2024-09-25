@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "./NavBar";
+import { useCart } from "./CartContext";
 import '../styles/GetProducts.css';
 
 function GetProducts() {
@@ -7,6 +8,7 @@ function GetProducts() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const { cartItems, cartAmount, addToCart, calculatePrice } = useCart();
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
                 .then(res=>res.json())
@@ -24,7 +26,7 @@ function GetProducts() {
                 <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
                 <h3>{product.title}</h3>
                 <h4>${product.price}</h4>
-                <button style={{backgroundColor: 'white', color: 'black'}}>Add To Cart</button>
+                <button style={{backgroundColor: 'white', color: 'black'}} onClick={() => {addToCart(product)}}>Add To Cart</button>
             </div>
         )
     })
