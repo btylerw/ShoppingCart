@@ -9,6 +9,7 @@ export const ShoppingCart = () => {
             <>
                 <div style={{color: 'black'}}>{item.title}</div>
                 <div style={{color: 'black'}}>{item.price}</div>
+                <div style={{color: 'black'}}>Quantity: {item.quantity}</div>
                 <button style={{backgroundColor: 'red'}} onClick={() => removeFromCart(item)}>Remove Item</button>
             </>
         )

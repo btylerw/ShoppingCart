@@ -21,6 +21,7 @@ function GetProducts() {
     if (error) return <p>Error loading screen</p>
 
     const createImages = products.map((product, key) => {
+        product.quantity = 1;
         return (
             <div key={key} className="product">
                 <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />

@@ -7,8 +7,15 @@ export function CartProvider({ children }) {
     const [cartAmount, setCartAmount] = useState(0);
 
     function addToCart(product) {
-        setCartItems([...cartItems, product]);
-        setCartAmount(cartAmount + 1);
+        setCartItems(previousCart => {
+            const prodExists = cartItems.find(item => item.id === product.id);
+            if (prodExists) {
+                return previousCart.map(item => item.id === product.id ? {...item, quantity: item.quantity + 1} : item);
+            } else {
+                return [...previousCart, product];
+            }
+        });
+        setCartAmount(cartAmount+1);
     }
 
     function removeFromCart(product) {
@@ -18,7 +25,7 @@ export function CartProvider({ children }) {
     }
 
     function calculatePrice() {
-        const total = cartItems.reduce((total, item) => total + (item.price), 0).toFixed(2);
+        const total = cartItems.reduce((total, item) => total + (item.price) * (item.quantity), 0).toFixed(2);
         return total;
     }
 
