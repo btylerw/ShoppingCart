@@ -44,10 +44,10 @@ function GetProducts() {
                 <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
                 <h3>{product.title}</h3>
                 <h4>${product.price}</h4>
-                <div className="quant-button">
-                    <button onClick={() => changeQuantity(product, 'decrease')}>-</button>
+                <div className="quant-button-container">
+                    <button className="quant-button" onClick={() => changeQuantity(product, 'decrease')}>-</button>
                     <h4>{product.quantity}</h4>
-                    <button onClick={() => changeQuantity(product, 'increase')}>+</button>
+                    <button className="quant-button" onClick={() => changeQuantity(product, 'increase')}>+</button>
                 </div>
                 <button style={{backgroundColor: 'white', color: 'black'}} onClick={() => {addToCart(product)}}>Add To Cart</button>
             </div>

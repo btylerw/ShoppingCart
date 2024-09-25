@@ -2,7 +2,18 @@
     color: black;
 }
 
+.quant-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .quant-button {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 10px;
+    
 }

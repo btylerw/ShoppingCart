@@ -9,8 +9,10 @@ nav {
     color: white;
     background-color: rgb(237, 238, 239);
     position: sticky;
-    padding: 10px;
     top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 100;
 }
 
 nav .title {

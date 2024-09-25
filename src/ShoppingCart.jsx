@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "./NavBar";
 import { useCart } from "./CartContext";
+import '../styles/ShoppingCart.css';
 
 export const ShoppingCart = () => {
     const { cartItems, cartAmount, addToCart, calculatePrice, removeFromCart } = useCart();
@@ -9,11 +10,13 @@ export const ShoppingCart = () => {
     const showCart = cartItems.map((item) => {
         return (
             <>
-                <img src={item.image} alt="" />
-                <div style={{color: 'black'}}>{item.title}</div>
-                <div style={{color: 'black'}}>{item.price}</div>
-                <div style={{color: 'black'}}>Quantity: {item.quantity}</div>
+            <div className="cart-container">
+                <img className="cart-image" src={item.image} alt="" />
+                <h3 style={{color: 'black'}}>{item.title}</h3>
+                <h3 style={{color: 'black'}}>{item.price}</h3>
+                <h3 style={{color: 'black'}}>Quantity: {item.quantity}</h3>
                 <button style={{backgroundColor: 'red'}} onClick={() => removeFromCart(item)}>Remove Item</button>
+            </div>
             </>
         )
     })
@@ -21,7 +24,7 @@ export const ShoppingCart = () => {
     return (
         <>
             <Navbar />
-            <h1 style={{color: 'black'}}>{cartAmount ? showCart : "Your cart is empty!"}</h1>
+            <div style={{color: 'black'}}>{cartAmount ? showCart : "Your cart is empty!"}</div>
             <h2 style={{color: 'black'}}>Total Price: ${calculatePrice()}</h2>
         </>
     )

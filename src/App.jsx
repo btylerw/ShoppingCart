@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div style={{color: 'black'}}>
+      <div className="home-container" style={{color: 'black'}}>
         <h1>This is the home page!</h1>
       </div>
     </>
