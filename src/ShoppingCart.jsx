@@ -8,6 +8,7 @@ export const ShoppingCart = () => {
     
     // Creates an element for each item in our shopping cart
     const showCart = cartItems.map((item) => {
+        console.log(item);
         return (
             <>
             <div className="cart-items">

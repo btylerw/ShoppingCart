@@ -39,11 +39,3 @@
 .read-the-docs {
   color: #888;
 }
-
-.productGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: center;
-  gap: 20px;
-  width: 100vw;
-}

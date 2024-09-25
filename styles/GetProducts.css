@@ -1,7 +1,11 @@
 .product {
     color: black;
+    height: 500px;
 }
 
+.product button {
+    border: 1px solid black;
+}
 .shop-container {
     height: 100vh;
     margin-top: 5px;
@@ -22,3 +26,13 @@
     width: 10px;
     
 }
+
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+    width: 100vw;
+  }
