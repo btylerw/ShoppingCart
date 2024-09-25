@@ -36,10 +36,6 @@ function GetProducts() {
         }
         setUpdate(!update);
     }
-
-    const getQuantity = (product) => {
-        return product.quantity;
-    }
     
     // Creates elements that will display our product information and map the data accordingly
     const createImages = products.map((product, key) => {
@@ -51,7 +47,7 @@ function GetProducts() {
                 <h4>${product.price}</h4>
                 <div className="quant-button">
                     <button onClick={() => reduceQuantity(product)}>-</button>
-                    <h4>{getQuantity(product)}</h4>
+                    <h4>{product.quantity}</h4>
                     <button onClick={() => increaseQuantity(product)}>+</button>
                 </div>
                 <button style={{backgroundColor: 'white', color: 'black'}} onClick={() => {addToCart(product)}}>Add To Cart</button>
