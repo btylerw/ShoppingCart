@@ -7,8 +7,9 @@ nav {
     justify-content: space-between;
     align-items: center;
     color: white;
-    background-color: rgb(237, 238, 239);
+    background-color: rgb(3, 35, 68);
     position: sticky;
+    padding: 10px;
     top: 0;
     left: 0;
     width: 100vw;
@@ -95,7 +96,10 @@ nav .menu span {
 }
 
 .cart {
-    fill: black;
     width: 25px;
     height: auto;
+}
+
+svg {
+    fill: white;
 }

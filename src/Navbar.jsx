@@ -6,8 +6,8 @@ const Navbar = () => {
     return (
         <nav>
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px'}}>
-                <Link to="/">Home</Link>
-                <Link to="/shop">Shop</Link>
+                <Link to="/" style={{color: 'white'}}>Home</Link>
+                <Link to="/shop" style={{color: 'white'}}>Shop</Link>
                 <Link to="/cart">
                     <img src={shoppingCart} className="cart" alt=""/>
                 </Link>

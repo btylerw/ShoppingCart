@@ -43,7 +43,7 @@ function GetProducts() {
             <div key={key} className="product">
                 <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
                 <h3>{product.title}</h3>
-                <h4>${product.price}</h4>
+                <h4>${product.price.toFixed(2)}</h4>
                 <div className="quant-button-container">
                     <button className="quant-button" onClick={() => changeQuantity(product, 'decrease')}>-</button>
                     <h4>{product.quantity}</h4>
