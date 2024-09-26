@@ -43,23 +43,11 @@ function GetProducts() {
     }
     // Creates elements that will display our product information and map the data accordingly
     const createImages = products.map((product, key) => {
-        if (state.category) {
-            if (state.category === product.category) {
-                return (
-                    <div key={key} className="product">
-                        <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
-                        <h4>{product.title}</h4>
-                        <h4>${product.price.toFixed(2)}</h4>
-                        <div className="quant-button-container">
-                            <button className="quant-button" onClick={() => changeQuantity(product, 'decrease')}>-</button>
-                            <h4>{product.quantity}</h4>
-                            <button className="quant-button" onClick={() => changeQuantity(product, 'increase')}>+</button>
-                        </div>
-                        <button style={{backgroundColor: 'white', color: 'black'}} onClick={() => {addToCart(product)}}>Add To Cart</button>
-                    </div>
-                )
-            }
-        } else {
+        let canWrite = true;
+        if (state.category && state.category != product.category) {
+            canWrite = false;
+        }
+        if (canWrite) {
             return (
                 <div key={key} className="product">
                     <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
@@ -72,7 +60,9 @@ function GetProducts() {
                     </div>
                     <button style={{backgroundColor: 'white', color: 'black'}} onClick={() => {addToCart(product)}}>Add To Cart</button>
                 </div>
-            )
+            );
+        } else {
+            return;
         }
     })
 
