@@ -8,7 +8,8 @@ nav {
     align-items: center;
     color: white;
     background-color: rgb(3, 35, 68);
-    position: sticky;
+    position: fixed;
+    z-index: 0;
     padding: 10px;
     top: 0;
     width: 100vw;
@@ -98,6 +99,10 @@ nav .menu span {
     height: auto;
 }
 
+.arrow {
+    width: 10px;
+    height: auto;
+}
 svg {
     fill: white;
 }

@@ -17,7 +17,11 @@ ul {
   
   .dropdown-menu {
     position: absolute;
+    list-style: none;
+    text-align: start;
     display: flex;
+    gap: 5px;
+    padding: 10px;
     flex-direction: column;
     background-color: rgb(3, 35, 68);
     width: 150px;
