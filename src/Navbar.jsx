@@ -15,9 +15,9 @@ const Navbar = () => {
       };
     return (
         <nav>
-            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px'}}>
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', position: 'sticky'}}>
                 <Link to="/" style={{color: 'white'}}>Home</Link>
-                <Link to="/shop" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={{color: 'white', position: 'relative', display: 'inline-block'}}>
+                <Link to="/shop" state={{category: null}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={{color: 'white', position: 'relative', display: 'inline-block'}}>
                     Shop
                     {isDropDownVisible && <DropdownMenu />}
                 </Link>

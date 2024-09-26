@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./NavBar";
 import { useCart } from "./CartContext";
 import '../styles/GetProducts.css';
@@ -8,6 +9,10 @@ function GetProducts() {
     const [update, setUpdate] = useState(false);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    const location = useLocation();
+    const state = location.state;
+
 
     // Getting cart info from Cart Context
     const { cartItems, cartAmount, addToCart, calculatePrice } = useCart();
@@ -38,20 +43,37 @@ function GetProducts() {
     }
     // Creates elements that will display our product information and map the data accordingly
     const createImages = products.map((product, key) => {
-        console.log(product);
-        return (
-            <div key={key} className="product">
-                <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
-                <h4>{product.title}</h4>
-                <h4>${product.price.toFixed(2)}</h4>
-                <div className="quant-button-container">
-                    <button className="quant-button" onClick={() => changeQuantity(product, 'decrease')}>-</button>
-                    <h4>{product.quantity}</h4>
-                    <button className="quant-button" onClick={() => changeQuantity(product, 'increase')}>+</button>
+        if (state.category) {
+            if (state.category === product.category) {
+                return (
+                    <div key={key} className="product">
+                        <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
+                        <h4>{product.title}</h4>
+                        <h4>${product.price.toFixed(2)}</h4>
+                        <div className="quant-button-container">
+                            <button className="quant-button" onClick={() => changeQuantity(product, 'decrease')}>-</button>
+                            <h4>{product.quantity}</h4>
+                            <button className="quant-button" onClick={() => changeQuantity(product, 'increase')}>+</button>
+                        </div>
+                        <button style={{backgroundColor: 'white', color: 'black'}} onClick={() => {addToCart(product)}}>Add To Cart</button>
+                    </div>
+                )
+            }
+        } else {
+            return (
+                <div key={key} className="product">
+                    <img src={product.image} style={{height: '200px', width: '200px'}} alt="" />
+                    <h4>{product.title}</h4>
+                    <h4>${product.price.toFixed(2)}</h4>
+                    <div className="quant-button-container">
+                        <button className="quant-button" onClick={() => changeQuantity(product, 'decrease')}>-</button>
+                        <h4>{product.quantity}</h4>
+                        <button className="quant-button" onClick={() => changeQuantity(product, 'increase')}>+</button>
+                    </div>
+                    <button style={{backgroundColor: 'white', color: 'black'}} onClick={() => {addToCart(product)}}>Add To Cart</button>
                 </div>
-                <button style={{backgroundColor: 'white', color: 'black'}} onClick={() => {addToCart(product)}}>Add To Cart</button>
-            </div>
-        )
+            )
+        }
     })
 
     return (
