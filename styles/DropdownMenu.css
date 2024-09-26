@@ -9,14 +9,26 @@ ul {
     transition: all linear 0.3s;
   }
   
-  li:hover {
+  Link:hover {
     background: gray;
     cursor: pointer;
-    color: #fff;
+    color: #878686
   }
   
   .dropdown-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
     background-color: rgb(3, 35, 68);
+    width: 150px;
     box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
     transition: all linear 0.3s;
+  }
+
+  .dropdown-link {
+    color: white;
+  }
+
+  .dropdown-link:hover {
+    color: rgb(140, 135, 135)
   }
