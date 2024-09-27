@@ -25,7 +25,7 @@ export const ShoppingCart = () => {
         <>
             <Navbar />
             <div className="cart-container">
-                <div style={{color: 'black'}}>{cartAmount ? showCart : "Your cart is empty!"}</div>
+                <div className="cartGrid">{cartAmount ? showCart : "Your cart is empty!"}</div>
                 <h2 style={{color: 'black'}}>Total Price: ${calculatePrice()}</h2>
             </div>
         </>
